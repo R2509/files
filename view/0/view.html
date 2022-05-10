@@ -1,0 +1,21 @@
+<html>
+	<head>
+		<title>view</title>
+	</head>
+	<body>
+		<script>
+			function get() {
+				let n = document.getElementById('n').value
+				let url = `https://r2509.github.io/files/view/0/${n.toString().padStart(3, '0')}.txt`;
+				console.log(url)
+				fetch(url).then(r => r.text()).then(r => document.write(r)).catch(e => console.warn(`${e}`));
+			}
+		</script>
+		<label for="n">id</label>
+			<input name="n" type="text" id="n">
+			<button onclick="get()">load</button>
+		<div id="write">
+
+		</div>
+	</body>
+</html>
