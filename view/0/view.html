@@ -3,7 +3,14 @@
 		<title>view</title>
 	</head>
 	<body>
+		<label for="n">id</label>
+			<input name="n" type="text" id="n">
+			<button id="b" onclick="get()">load</button>
+		<div id="write">
+
+		</div>
 		<script>
+			document.getElementById('n').addEventListener('keypress', function(e){if (e.code == 'Enter'){get()}})
 			function get() {
 				let n = document.getElementById('n').value
 				let url = `https://r2509.github.io/files/view/0/${n.toString().padStart(3, '0')}.txt`;
@@ -11,11 +18,5 @@
 				fetch(url).then(r => r.text()).then(r => document.write(r)).catch(e => console.warn(`${e}`));
 			}
 		</script>
-		<label for="n">id</label>
-			<input name="n" type="text" id="n">
-			<button onclick="get()">load</button>
-		<div id="write">
-
-		</div>
 	</body>
 </html>
