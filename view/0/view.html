@@ -10,7 +10,9 @@
 
 		</div>
 		<script>
-			document.getElementById('n').addEventListener('keypress', function(e){if (e.code == 'Enter'){get()}})
+			let n = document.getElementById('n');
+			n.addEventListener('keypress', function(e){if (e.code == 'Enter'){get()}})
+			window.onload = function () {n.focus()}
 			function get() {
 				let n = document.getElementById('n').value
 				let url = `https://r2509.github.io/files/view/0/${n.toString().padStart(3, '0')}.txt`;
