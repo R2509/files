@@ -9,4 +9,4 @@ def save(url, filename):
     else:
         print(f'error {resp.status_code}')
 
-save('https://www.google.co.uk/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&ved=2ahUKEwjIlNzp2o34AhXS34UKHfSgBPwQFnoECA4QAQ&url=https%3A%2F%2Fwww.deviantart.com%2Fdevelopers%2Fhttp%2Fv1%2F20210526&usg=AOvVaw3KIOI7BL2SdsSwUhnmPlgf', '160')
+save('https://www.deviantart.com/developers/http/v1/20210526', '160')
