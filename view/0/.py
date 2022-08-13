@@ -4,10 +4,16 @@ with open(sys.path[0]+'/dat', 'r') as data:
     entries = json.loads(data.read())
 
 out = {}
+i=0
 for entry in entries:
-    out[entry['title']] = entry['url']
+    out[i] = [entry['title'], entry['url']]
+    i+=1
+o=''
+for i in range(len(out)):
+    o += f'[{out[i][0]}]({out[i][1]})\n'
 
-with open(sys.path[0]+'/out.txt', 'w') as output:
+
+with open(sys.path[0]+'/out.md', 'w') as output:
     output.truncate()
     output.seek(0)
-    output.write(json.dumps(out, indent=4))
+    output.write(o)
