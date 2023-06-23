@@ -1,0 +1,23 @@
+<html>
+	<head>
+		<title>view</title>
+	</head>
+	<body>
+		<label for="n">URL</label>
+			<input name="n" type="text" id="n">
+			<button id="b" onclick="get()">load</button>
+		<div id="write">
+
+		</div>
+		<script>
+			let n = document.getElementById('n');
+			n.addEventListener('keypress', function(e){if (e.code == 'Enter'){get()}})
+			window.onload = function () {n.focus()}
+			function get() {
+				let n = document.getElementById('n').value
+				console.log(url)
+				fetch(n).then(r => r.json()).then(json => document.write(`<img src="${json.url}">`).catch(e => console.warn(`${e}`));
+			}
+		</script>
+	</body>
+</html>
