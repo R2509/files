@@ -15,7 +15,6 @@
 			window.onload = function () {n.focus()}
 			function get() {
 				let n = document.getElementById('n').value
-				console.log(url)
 				fetch(n).then(r => r.json()).then(json => document.write(`<img src="${json.url}">`)).catch(e => console.warn(`${e}`));
 			}
 		</script>
