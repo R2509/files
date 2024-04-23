@@ -2,12 +2,12 @@
 	<head>
 		<title>view</title>
 	</head>
-	<body>
+	<body style="background-color: black;">
 		<label for="n">id</label>
 			<input name="n" type="number" id="n">
 			<button id="b" onclick="get()">load</button>
 		<div id="write">
-
+			<iframe src="" frameborder="0"></iframe>
 		</div>
 		<script>
 			let n = document.getElementById('n');
@@ -15,9 +15,16 @@
 			window.onload = function () {n.focus()}
 			function get() {
 				let n = document.getElementById('n').value
-				let url = `https://r2509.github.io/files/view/0/${n.toString().padStart(3, '0')}.txt`;
+				let url = `./${n.toString().padStart(3, '0')}.html`;
 				console.log(url)
-				fetch(url).then(r => r.text()).then(r => document.write(r)).catch(e => console.warn(`${e}`));
+				const iframe = document.createElement('iframe');
+				iframe.style.width = '100%';
+				iframe.style.height = '100%';
+				iframe.style.margin = '0';
+				iframe.src = url;
+				document.body.innerHTML = '';
+				document.body.appendChild(iframe);
+				// fetch(url).then(r => r.text()).then(r => document.write(r)).catch(e => console.warn(`${e}`));
 			}
 		</script>
 	</body>
